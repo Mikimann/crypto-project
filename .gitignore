@@ -23,6 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 
-# KEYS
-
-API_KEY = 86de13f1d4f2e7c508490380322f14ccc4faf0c5299ca187e6d3fda758aec357
+.env
