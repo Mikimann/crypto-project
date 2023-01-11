@@ -32,7 +32,6 @@ setInterval(async () => {
   const data = await getCoinsInfo(coinsNames);
   if (data.length > 0) {
     data.forEach(({ name, price }) => {
-      console.log(name, price);
       publish(name, price);
     });
   }
@@ -43,9 +42,8 @@ const getCoinsInfo = async (names) => {
     const { data } = await axios.get(`${URLS.COINS_PRICE}${names.join(',')}`);
 
     return Object.entries(data).map(([name, { USD: price }]) => ({ name, price }));
-  } catch (error) {
-    console.log(error);
-  }
+    // eslint-disable-next-line no-empty
+  } catch (error) {}
 
   return [];
 };
@@ -57,9 +55,8 @@ const fetchCoinsList = async () => {
     } = await axios.get(URLS.ALL_COINS_LIST);
 
     return Data;
-  } catch (error) {
-    console.log(error);
-  }
+    // eslint-disable-next-line no-empty
+  } catch (error) {}
 
   return [];
 };
